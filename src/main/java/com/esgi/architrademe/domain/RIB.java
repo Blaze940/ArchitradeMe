@@ -11,6 +11,12 @@ public class RIB {
         return new RIB(value);
     }
 
+    public static RIB generateRIB(){
+        return RIB.of("1234567898765432");
+    }
+
+    // TODO Validate RIB length
+
     @Override
     public String toString() {
         return "RIB{" +

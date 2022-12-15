@@ -27,6 +27,10 @@ public class ADR {
         return new ADR(value, currency, newNbHours);
     }
 
+    public static ADR generateADR(){
+        return ADR.of(300., "EUR", 7.);
+    }
+
     @Override
     public String toString() {
         return "ADR{" +

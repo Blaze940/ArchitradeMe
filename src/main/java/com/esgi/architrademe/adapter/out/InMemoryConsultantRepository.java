@@ -7,13 +7,29 @@ import com.esgi.architrademe.domain.ConsultantId;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
-public class InMemoryConsultantRepository implements ConsultantRepository {
+public final class InMemoryConsultantRepository implements ConsultantRepository {
     private final Map<ConsultantId, Consultant> registry = new HashMap<>();
 
     @Override
     public Consultant findByCaracterics(String caracteric) {
         return null; //TODO to finish
+    }
+
+    @Override
+    public Consultant findByConsultantId(UUID consultantId) {
+        return null;
+    }
+
+    @Override
+    public ConsultantId nextId() {
+        return ConsultantId.of(UUID.randomUUID());
+    }
+
+    @Override
+    public Consultant findByFirstname(String firstname) {
+        return null;
     }
 
     @Override

@@ -9,12 +9,12 @@ public class Consultant {
     String lastname;
     Skills skills;
     ADR adr;
-    String[] availabilities;
+    Availability availabilities;
     RIB rib;
     //String modality; //TODO to review
 
 
-    public Consultant(ConsultantId consultantId, Skills skills, ADR adr, RIB rib, String firstname, String lastname, String[] availabilities) {
+    public Consultant(ConsultantId consultantId, Skills skills, ADR adr, RIB rib, String firstname, String lastname, Availability availabilities) {
         this.consultantId = consultantId;
         this.skills = skills;
         this.adr = adr;
@@ -40,9 +40,9 @@ public class Consultant {
 
     public static Consultant generateConsultant(){
         Skills skills = Skills.create();
-        ADR adr = ADR.of(300., "EUR", 7.);
-        String[] days = new String[]{Days.thrusday.label};
-        RIB rib = RIB.of("1234567898765432");
+        ADR adr = ADR.generateADR();
+        Availability days = Availability.generateAvaibility();
+        RIB rib = RIB.generateRIB();
         return new Consultant(
                 ConsultantId.of(UUID.randomUUID()),
                 skills,
@@ -60,9 +60,9 @@ public class Consultant {
                 "consultantId=" + consultantId + '\n' +
                 ", firstname='" + firstname + '\'' + '\n' +
                 ", lastname='" + lastname + '\'' + '\n' +
-                ", skills=" + skills + '\n' +
+                ", skills=" + skills.skillsMap + '\n' +
                 ", adr=" + adr + '\n' +
-                ", availabilities=" + Arrays.toString(availabilities) + '\n' +
+                ", availabilities=" + Arrays.toString(availabilities.availableDays) + '\n' +
                 ", rib=" + rib +
                 '}';
     }
