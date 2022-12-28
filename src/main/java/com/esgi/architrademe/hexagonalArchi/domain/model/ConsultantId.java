@@ -1,9 +1,9 @@
-package com.esgi.architrademe.hexagonalArchi.domain;
+package com.esgi.architrademe.hexagonalArchi.domain.model;
 
 import java.util.Objects;
 import java.util.UUID;
 
-public class ConsultantId {
+public final class ConsultantId {
         private final UUID value;
 
         private ConsultantId(UUID value) {
