@@ -1,6 +1,6 @@
 package kernel;
 
-/*import javax.validation.Validation;
+import javax.validation.Validation;
 import javax.validation.Validator;
 
 public final class UseCaseValidator {
@@ -30,4 +30,4 @@ public final class UseCaseValidator {
         return validator;
     }
 }
-*/
+
