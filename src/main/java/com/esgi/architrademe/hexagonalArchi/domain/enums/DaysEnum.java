@@ -1,4 +1,4 @@
-package com.esgi.architrademe.hexagonalArchi.domain;
+package com.esgi.architrademe.hexagonalArchi.domain.enums;
 
 public enum DaysEnum {
     MONDAY("Monday"),

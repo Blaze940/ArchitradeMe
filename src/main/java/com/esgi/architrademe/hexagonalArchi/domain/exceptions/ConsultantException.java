@@ -1,4 +1,4 @@
-package com.esgi.architrademe.hexagonalArchi.domain;
+package com.esgi.architrademe.hexagonalArchi.domain.exceptions;
 
 import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
 
@@ -14,7 +14,7 @@ public class ConsultantException extends RuntimeException {
         throw new ConsultantException();
     }
 
-    public static ConsultantException notFoundConsultant(ConsultantId consultantId) {
+    public static ConsultantException notFoundConsultantId(ConsultantId consultantId) {
         return new ConsultantException("Consultant with id -> " + consultantId.value() + " not found.");
     }
 }

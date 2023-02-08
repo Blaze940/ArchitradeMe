@@ -1,4 +1,4 @@
-package com.esgi.architrademe.hexagonalArchi.domain;
+package com.esgi.architrademe.hexagonalArchi.domain.enums;
 
 public enum BillStatusEnum {
     PAID("Paid"),
