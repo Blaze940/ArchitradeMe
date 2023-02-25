@@ -1,7 +1,5 @@
 package com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.entity;
 
-import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -10,29 +8,29 @@ import java.util.UUID;
 @Table(name = "T_CONSULTANT")
 public class ConsultantEntity {
     @Id
-    private String id;
+    private UUID id;
 //    @ElementCollection
 //    private List<EventEntity> recordedEvents;
 
-    public String name ;
-    public String usernameCredentials ;
-    public String passwordCredentials ;
-    public String description ;
-    public String modality ;
-    public int experienceInYears;
-    public int pricePerDay ;
-    public int pricePerExtraDay ;
-    public String rib ;
+    private String name ;
+    private String usernameCredentials ;
+    private String passwordCredentials ;
+    private String description ;
+    private String modality ;
+    private int experienceInYears;
+    private int pricePerDay ;
+    private int pricePerExtraDay ;
+    private String rib ;
     @ElementCollection
     @CollectionTable(name = "consultant_skills", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "skill_id", columnDefinition = "TEXT")
-    public List<String> skills ;
+    private List<String> skills ;
     @ElementCollection
     @CollectionTable(name = "consultant_availibilities", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "availibility_id", columnDefinition = "TEXT")
-    public List<String> availibilities ;
+    private List<String> availibilities ;
 
-    public ConsultantEntity(String id, String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib, List<String> skills, List<String> availibilities) {
+    public ConsultantEntity(UUID id, String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib, List<String> skills, List<String> availibilities) {
         this.id = id;
         this.name = name;
         this.usernameCredentials = usernameCredentials;
@@ -51,11 +49,11 @@ public class ConsultantEntity {
 
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

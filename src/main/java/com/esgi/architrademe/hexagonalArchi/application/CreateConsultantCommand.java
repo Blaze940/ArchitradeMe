@@ -1,17 +1,9 @@
 package com.esgi.architrademe.hexagonalArchi.application;
 
 import com.esgi.architrademe.hexagonalArchi.domain.Credentials;
-import com.esgi.architrademe.hexagonalArchi.domain.enums.ConsultantSkillEnum;
-import com.esgi.architrademe.hexagonalArchi.domain.enums.DaysEnum;
-import com.esgi.architrademe.hexagonalArchi.domain.enums.ModalityEnum;
-import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
-import com.esgi.architrademe.hexagonalArchi.domain.model.other.Mission;
 import kernel.Command;
 
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class CreateConsultantCommand implements Command {
     public String name ;

@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.entity")
 @EnableJpaRepositories(basePackages = "com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.repository")
 @SpringBootApplication(scanBasePackages = "com.esgi.architrademe.hexagonalArchi")
-//@SpringBootApplication
 public class ArchitradeMeApplication {
 
 	public static void main(String[] args) {

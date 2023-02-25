@@ -8,7 +8,7 @@ public enum ConsultantSkillEnum {
     C("C"),
     ENGLISH("English"),
     GIT("Git") ;
-    private final String label;
+    public final String label;
 
 
     ConsultantSkillEnum(String label) {

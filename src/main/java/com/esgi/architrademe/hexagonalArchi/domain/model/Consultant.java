@@ -1,10 +1,6 @@
 package com.esgi.architrademe.hexagonalArchi.domain.model;
 
-import com.esgi.architrademe.hexagonalArchi.domain.enums.ConsultantSkillEnum;
 import com.esgi.architrademe.hexagonalArchi.domain.Credentials;
-import com.esgi.architrademe.hexagonalArchi.domain.enums.DaysEnum;
-import com.esgi.architrademe.hexagonalArchi.domain.enums.ModalityEnum;
-import com.esgi.architrademe.hexagonalArchi.domain.model.other.Mission;
 
 import java.util.List;
 import java.util.Objects;

@@ -3,7 +3,6 @@ package com.esgi.architrademe.hexagonalArchi.application.services;
 import com.esgi.architrademe.hexagonalArchi.application.CreateConsultantCommand;
 import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantCreatedApplicationEvent;
 import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
-import com.esgi.architrademe.hexagonalArchi.domain.model.other.Mission;
 import com.esgi.architrademe.hexagonalArchi.domain.ports.server.Consultants;
 import kernel.CommandHandler;
 import kernel.Event;

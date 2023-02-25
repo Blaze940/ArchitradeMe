@@ -9,7 +9,7 @@ public enum DaysEnum {
     SATURDAY("Saturday"),
     SUNDAY("Sunday");
 
-    private final String label;
+    public final String label;
 
     DaysEnum(String label) {
         this.label = label;

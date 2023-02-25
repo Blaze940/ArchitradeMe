@@ -2,17 +2,25 @@ package com.esgi.architrademe.hexagonalArchi.exposition.requests;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.UUID;
 
 public final class CreateConsultantRequest {
+    @NotNull
     public String name ;
+    @NotNull
     public String usernameCredentials ;
+    @NotNull
     public String passwordCredentials ;
+    @NotNull
     public String description ;
+    @NotNull
     public String modality ;
+    @NotNull
     public int experienceInYears;
+    @NotNull
     public int pricePerDay ;
+    @NotNull
     public int pricePerExtraDay ;
+    @NotNull
     public String rib ;
     public List<String> skills ;
     public List<String> availibilities ;
