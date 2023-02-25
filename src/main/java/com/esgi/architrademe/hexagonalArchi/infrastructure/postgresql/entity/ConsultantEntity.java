@@ -23,8 +23,16 @@ public class ConsultantEntity {
     public int pricePerDay ;
     public int pricePerExtraDay ;
     public String rib ;
+    @ElementCollection
+    @CollectionTable(name = "consultant_skills", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "skill_id", columnDefinition = "TEXT")
+    public List<String> skills ;
+    @ElementCollection
+    @CollectionTable(name = "consultant_availibilities", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "availibility_id", columnDefinition = "TEXT")
+    public List<String> availibilities ;
 
-    public ConsultantEntity(String id, String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib) {
+    public ConsultantEntity(String id, String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib, List<String> skills, List<String> availibilities) {
         this.id = id;
         this.name = name;
         this.usernameCredentials = usernameCredentials;
@@ -35,10 +43,20 @@ public class ConsultantEntity {
         this.pricePerDay = pricePerDay;
         this.pricePerExtraDay = pricePerExtraDay;
         this.rib = rib;
+        this.skills = skills;
+        this.availibilities = availibilities;
     }
 
     public ConsultantEntity() {
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -113,11 +131,19 @@ public class ConsultantEntity {
         this.rib = rib;
     }
 
-    public String getId() {
-        return id;
+    public List<String> getSkills() {
+        return skills;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
+    }
+
+    public List<String> getAvailibilities() {
+        return availibilities;
+    }
+
+    public void setAvailibilities(List<String> availibilities) {
+        this.availibilities = availibilities;
     }
 }

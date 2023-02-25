@@ -2,19 +2,12 @@ package com.esgi.architrademe.hexagonalArchi.application.services;
 
 import com.esgi.architrademe.hexagonalArchi.application.CreateConsultantCommand;
 import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantCreatedApplicationEvent;
-import com.esgi.architrademe.hexagonalArchi.domain.Credentials;
-import com.esgi.architrademe.hexagonalArchi.domain.enums.ConsultantSkillEnum;
-import com.esgi.architrademe.hexagonalArchi.domain.enums.DaysEnum;
-import com.esgi.architrademe.hexagonalArchi.domain.enums.ModalityEnum;
 import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
 import com.esgi.architrademe.hexagonalArchi.domain.model.other.Mission;
 import com.esgi.architrademe.hexagonalArchi.domain.ports.server.Consultants;
 import kernel.CommandHandler;
 import kernel.Event;
 import kernel.EventDispatcher;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public final class CreateConsultantService implements CommandHandler<CreateConsultantCommand, String> {
 
@@ -34,14 +27,13 @@ public final class CreateConsultantService implements CommandHandler<CreateConsu
                 command.name,
                 command.credentials,
                 command.description,
-                command.skills,
                 command.experienceInYears,
                 command.pricePerDay,
                 command.pricePerExtraDay,
-                command.availibilities,
                 command.modality,
                 command.rib,
-                command.listeConsultantMissions);
+                command.skills,
+                command.availibilities);
         consultants.add(consultant);
         eventDispatcher.dispatch(new ConsultantCreatedApplicationEvent(consultantId));
         return consultantId.value();

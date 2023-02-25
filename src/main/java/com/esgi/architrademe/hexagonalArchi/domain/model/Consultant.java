@@ -14,16 +14,15 @@ public final class Consultant {
     private final String name ;
     private final Credentials credentials ;
     private final String description ;
-    private final List<ConsultantSkillEnum> skills ;
     private final int experienceInYears;
     private final int pricePerDay ;
     private final int pricePerExtraDay ;
-    private final List<DaysEnum> availibilities ; //ArrayList less efficient than array
+    private final List<String> skills ;
+    private final List<String> availibilities ; //ArrayList less efficient than array
     private final String modality ;
     private final String rib ;
-    private final List<Mission> listeConsultantMissions ;
 
-    public Consultant(ConsultantId id, String name, Credentials credentials, String description, List<ConsultantSkillEnum> skills, int experienceInYears, int pricePerDay, int pricePerExtraDay, List<DaysEnum> availibilities, String modality, String rib, List<Mission> listeConsultantMissions) {
+    public Consultant(ConsultantId id, String name, Credentials credentials, String description, int experienceInYears, int pricePerDay, int pricePerExtraDay, String modality, String rib, List<String> skills, List<String> availibilities) {
         this.id = id;
         this.name = name;
         this.credentials = credentials;
@@ -35,7 +34,6 @@ public final class Consultant {
         this.availibilities = availibilities;
         this.modality = modality;
         this.rib = rib;
-        this.listeConsultantMissions = listeConsultantMissions;
     }
 
     public String getName() {
@@ -50,7 +48,7 @@ public final class Consultant {
         return description;
     }
 
-    public List<ConsultantSkillEnum> getSkills() {
+    public List<String> getSkills() {
         return skills;
     }
 
@@ -67,7 +65,7 @@ public final class Consultant {
     }
 
 
-    public List<DaysEnum> getAvailibilities() {
+    public List<String> getAvailibilities() {
         return availibilities;
     }
 
@@ -77,10 +75,6 @@ public final class Consultant {
 
     public String getRib() {
         return rib;
-    }
-
-    public List<Mission> getListeConsultantMissions() {
-        return listeConsultantMissions;
     }
 
     public ConsultantId id() {

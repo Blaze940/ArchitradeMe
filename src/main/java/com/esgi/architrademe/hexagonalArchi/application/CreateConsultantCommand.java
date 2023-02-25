@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class CreateConsultantCommand implements Command {
-    public UUID id;
     public String name ;
     public String description ;
     public String modality;
@@ -23,12 +22,10 @@ public class CreateConsultantCommand implements Command {
     public int pricePerExtraDay ;
     public String rib ;
     public Credentials credentials ;
-    public List<ConsultantSkillEnum> skills ;
-    public List<DaysEnum> availibilities ; //ArrayList less efficient than array
-    public List<Mission> listeConsultantMissions ;
+    public List<String> skills ;
+    public List<String> availibilities ; //ArrayList less efficient than array
 
-    public CreateConsultantCommand(UUID id, String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib) {
-        this.id = id;
+    public CreateConsultantCommand(String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib, List<String> skills, List<String> availibilities) {
         this.name = name;
         this.description = description;
         this.modality = modality;
@@ -36,9 +33,8 @@ public class CreateConsultantCommand implements Command {
         this.pricePerDay = pricePerDay;
         this.pricePerExtraDay = pricePerExtraDay;
         this.rib = rib;
-        this.skills = new ArrayList<>();
-        this.credentials = new Credentials(usernameCredentials, passwordCredentials); 
-        this.availibilities = new ArrayList<>();
-        this.listeConsultantMissions = new ArrayList<>();
+        this.credentials = new Credentials(usernameCredentials, passwordCredentials);
+        this.skills = skills;
+        this.availibilities = availibilities;
     }
 }

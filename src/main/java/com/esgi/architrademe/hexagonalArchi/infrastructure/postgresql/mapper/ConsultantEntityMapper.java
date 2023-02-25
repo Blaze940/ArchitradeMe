@@ -25,28 +25,25 @@ public interface ConsultantEntityMapper {
                 consultant.getExperienceInYears(),
                 consultant.getPricePerDay(),
                 consultant.getPricePerExtraDay(),
-                consultant.getRib()
+                consultant.getRib(),
+                consultant.getSkills(),
+                consultant.getAvailibilities()
         );
     }
     static Consultant toDomain(ConsultantEntity consultantEntity){
         var consultantId = ConsultantId.of(UUID.fromString(consultantEntity.getId()));
         Credentials credentials = new Credentials(consultantEntity.usernameCredentials, consultantEntity.passwordCredentials);
-        List<DaysEnum> availibilities = new ArrayList<>();
-        List<ConsultantSkillEnum> skills = new ArrayList<>();
-        String modality = ModalityEnum.FULLPRESENCE.label;
-        List<Mission> listeConsultantMissions = new ArrayList<>();
        return new Consultant(
                    consultantId,
                    consultantEntity.getName(),
                     credentials,
                    consultantEntity.getDescription(),
-                    skills,
                    consultantEntity.getExperienceInYears(),
                    consultantEntity.getPricePerDay(),
                    consultantEntity.getPricePerExtraDay(),
-                    availibilities,
-                    modality,
+                    consultantEntity.getModality(),
                    consultantEntity.getRib(),
-                    listeConsultantMissions);
+                    consultantEntity.getSkills(),
+                    consultantEntity.getAvailibilities());
     }
 }

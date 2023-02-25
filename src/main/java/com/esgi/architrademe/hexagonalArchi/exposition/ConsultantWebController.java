@@ -31,7 +31,6 @@ public class ConsultantWebController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public CreateConsultantResponse create(@RequestBody @Valid CreateConsultantRequest createConsultantRequest) {
         var consultantId = (String) commandBus.post(new CreateConsultantCommand(
-                createConsultantRequest.id,
                 createConsultantRequest.name,
                 createConsultantRequest.usernameCredentials,
                 createConsultantRequest.passwordCredentials,
@@ -40,7 +39,9 @@ public class ConsultantWebController {
                 createConsultantRequest.experienceInYears,
                 createConsultantRequest.pricePerDay,
                 createConsultantRequest.pricePerExtraDay,
-                createConsultantRequest.rib
+                createConsultantRequest.rib,
+                createConsultantRequest.skills,
+                createConsultantRequest.availibilities
         ));
         return new CreateConsultantResponse(consultantId);
     }
