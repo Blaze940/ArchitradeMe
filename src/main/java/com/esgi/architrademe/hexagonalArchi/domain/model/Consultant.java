@@ -18,12 +18,12 @@ public final class Consultant {
     private final int experienceInYears;
     private final int pricePerDay ;
     private final int pricePerExtraDay ;
-    private final List<DaysEnum> availibilitys ; //ArrayList less efficient than array
-    private final ModalityEnum modality ;
+    private final List<DaysEnum> availibilities ; //ArrayList less efficient than array
+    private final String modality ;
     private final String rib ;
     private final List<Mission> listeConsultantMissions ;
 
-    public Consultant(ConsultantId id, String name, Credentials credentials, String description, List<ConsultantSkillEnum> skills, int experienceInYears, int pricePerDay, int pricePerExtraDay, List<DaysEnum> availibilitys, ModalityEnum modality, String rib, List<Mission> listeConsultantMissions) {
+    public Consultant(ConsultantId id, String name, Credentials credentials, String description, List<ConsultantSkillEnum> skills, int experienceInYears, int pricePerDay, int pricePerExtraDay, List<DaysEnum> availibilities, String modality, String rib, List<Mission> listeConsultantMissions) {
         this.id = id;
         this.name = name;
         this.credentials = credentials;
@@ -32,12 +32,56 @@ public final class Consultant {
         this.experienceInYears = experienceInYears;
         this.pricePerDay = pricePerDay;
         this.pricePerExtraDay = pricePerExtraDay;
-        this.availibilitys = availibilitys;
+        this.availibilities = availibilities;
         this.modality = modality;
         this.rib = rib;
         this.listeConsultantMissions = listeConsultantMissions;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Credentials getCredentials() {
+        return credentials;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public List<ConsultantSkillEnum> getSkills() {
+        return skills;
+    }
+
+    public int getExperienceInYears() {
+        return experienceInYears;
+    }
+
+    public int getPricePerDay() {
+        return pricePerDay;
+    }
+
+    public int getPricePerExtraDay() {
+        return pricePerExtraDay;
+    }
+
+
+    public List<DaysEnum> getAvailibilities() {
+        return availibilities;
+    }
+
+    public String getModality() {
+        return modality;
+    }
+
+    public String getRib() {
+        return rib;
+    }
+
+    public List<Mission> getListeConsultantMissions() {
+        return listeConsultantMissions;
+    }
 
     public ConsultantId id() {
         return id;

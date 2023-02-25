@@ -29,25 +29,20 @@ public final class CreateConsultantService implements CommandHandler<CreateConsu
     @Override
     public String handle(CreateConsultantCommand command) {
         var consultantId = this.consultants.nextId();
-        Credentials credentials = new Credentials(command.usernameCredentials, command.passwordCredentials);
-        List<DaysEnum > availibilities = new ArrayList<>();
-        List< ConsultantSkillEnum > skills = new ArrayList<>();
-        ModalityEnum modality = ModalityEnum.FULLPRESENCE;
-        List< Mission > listeConsultantMissions = new ArrayList<>();
+
         var consultant = new Consultant(consultantId,
                 command.name,
-                credentials,
+                command.credentials,
                 command.description,
-                skills,
+                command.skills,
                 command.experienceInYears,
                 command.pricePerDay,
                 command.pricePerExtraDay,
-                availibilities,
-                modality,
+                command.availibilities,
+                command.modality,
                 command.rib,
-                listeConsultantMissions);
+                command.listeConsultantMissions);
         consultants.add(consultant);
-        // TODO to add parameters
         eventDispatcher.dispatch(new ConsultantCreatedApplicationEvent(consultantId));
         return consultantId.value();
     }

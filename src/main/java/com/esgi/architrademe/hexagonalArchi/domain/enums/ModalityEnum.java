@@ -5,7 +5,7 @@ public enum ModalityEnum {
     HALFTELEWORKING("Half teleworking"),
     FULLREMOTE("Full remote");
 
-    private final String label;
+    public String label;
 
     ModalityEnum(String label) {
         this.label = label;

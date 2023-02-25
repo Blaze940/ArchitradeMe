@@ -1,25 +1,45 @@
 package com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.entity;
 
-import com.esgi.architrademe.hexagonalArchi.domain.enums.ModalityEnum;
+import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "consultant")
+@Table(name = "T_CONSULTANT")
 public class ConsultantEntity {
     @Id
-    @Column(name = "id", nullable = false)
-    private UUID id;
+    private String id;
+//    @ElementCollection
+//    private List<EventEntity> recordedEvents;
 
     public String name ;
     public String usernameCredentials ;
     public String passwordCredentials ;
     public String description ;
+    public String modality ;
     public int experienceInYears;
     public int pricePerDay ;
     public int pricePerExtraDay ;
     public String rib ;
+
+    public ConsultantEntity(String id, String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib) {
+        this.id = id;
+        this.name = name;
+        this.usernameCredentials = usernameCredentials;
+        this.passwordCredentials = passwordCredentials;
+        this.description = description;
+        this.modality = modality;
+        this.experienceInYears = experienceInYears;
+        this.pricePerDay = pricePerDay;
+        this.pricePerExtraDay = pricePerExtraDay;
+        this.rib = rib;
+    }
+
+    public ConsultantEntity() {
+
+    }
 
     public String getName() {
         return name;
@@ -51,6 +71,14 @@ public class ConsultantEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getModality() {
+        return modality;
+    }
+
+    public void setModality(String modality) {
+        this.modality = modality;
     }
 
     public int getExperienceInYears() {
@@ -85,11 +113,11 @@ public class ConsultantEntity {
         this.rib = rib;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

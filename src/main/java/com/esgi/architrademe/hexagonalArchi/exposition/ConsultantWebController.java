@@ -36,6 +36,7 @@ public class ConsultantWebController {
                 createConsultantRequest.usernameCredentials,
                 createConsultantRequest.passwordCredentials,
                 createConsultantRequest.description,
+                createConsultantRequest.modality,
                 createConsultantRequest.experienceInYears,
                 createConsultantRequest.pricePerDay,
                 createConsultantRequest.pricePerExtraDay,
