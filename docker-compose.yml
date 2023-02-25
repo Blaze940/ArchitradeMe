@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  postgres:
+    container_name: postgres-archi-trade-me
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: archi_trade_me
+    ports:
+      - "5434:5432"
+    volumes:
+      - archi-trade-me-volume:/applis/docker-compose/archi_trade_me/data
+volumes:
+  archi-trade-me-volume:
+    external: true
