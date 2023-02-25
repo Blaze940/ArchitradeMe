@@ -1,4 +1,4 @@
-package com.esgi.architrademe.hexagonalArchi.infrastructure;
+package com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.entity;
 
 import javax.persistence.Embeddable;
 

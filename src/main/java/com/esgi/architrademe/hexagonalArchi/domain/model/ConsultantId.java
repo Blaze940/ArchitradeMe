@@ -6,7 +6,7 @@ import java.util.UUID;
 public final class ConsultantId {
         private final UUID value;
 
-        private ConsultantId(UUID value) {
+        public ConsultantId(UUID value) {
             this.value = value ;
         }
         public static ConsultantId of(UUID value) {

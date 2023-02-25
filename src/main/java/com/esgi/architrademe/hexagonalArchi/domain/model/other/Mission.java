@@ -1,7 +1,8 @@
-package com.esgi.architrademe.hexagonalArchi.domain.model;
+package com.esgi.architrademe.hexagonalArchi.domain.model.other;
 
 import com.esgi.architrademe.hexagonalArchi.domain.enums.ConsultantSkillEnum;
 import com.esgi.architrademe.hexagonalArchi.domain.enums.MissionStatusEnum;
+import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
 
 import java.time.LocalDate;
 import java.util.List;

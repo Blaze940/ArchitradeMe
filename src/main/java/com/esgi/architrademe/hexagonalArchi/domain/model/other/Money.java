@@ -1,4 +1,4 @@
-package com.esgi.architrademe.hexagonalArchi.domain.model;
+package com.esgi.architrademe.hexagonalArchi.domain.model.other;
 
 import java.math.BigDecimal;
 

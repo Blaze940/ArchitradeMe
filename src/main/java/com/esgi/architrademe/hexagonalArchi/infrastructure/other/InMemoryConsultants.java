@@ -1,11 +1,12 @@
-package com.esgi.architrademe.hexagonalArchi.infrastructure;
+package com.esgi.architrademe.hexagonalArchi.infrastructure.other;
 
-import com.esgi.architrademe.hexagonalArchi.domain.ports.Consultants;
+import com.esgi.architrademe.hexagonalArchi.domain.ports.server.Consultants;
 import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
 import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public final class InMemoryConsultants implements Consultants {
     private final Map<ConsultantId, Consultant> consultants = new HashMap<>();
@@ -23,6 +24,11 @@ public final class InMemoryConsultants implements Consultants {
     @Override
     public void remove(ConsultantId consultantId) {
         consultants.remove(consultantId);
+    }
+
+    @Override
+    public ConsultantId nextId() {
+        return new ConsultantId(UUID.randomUUID());
     }
 }
 

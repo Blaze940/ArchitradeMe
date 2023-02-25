@@ -1,6 +1,7 @@
-package com.esgi.architrademe.hexagonalArchi.domain.model;
+package com.esgi.architrademe.hexagonalArchi.domain.model.other;
 
 import com.esgi.architrademe.hexagonalArchi.domain.enums.BillStatusEnum;
+import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
 
 public final class Bill {
     private final BillId id ;

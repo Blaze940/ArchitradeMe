@@ -1,15 +1,15 @@
-package com.esgi.architrademe.hexagonalArchi.domain.model;
+package com.esgi.architrademe.hexagonalArchi.domain.model.other;
 
 import java.util.UUID;
 
-public final class ClientId {
-    private final UUID value;
+public final class BillId {
+    private final UUID value ;
 
-    private ClientId(UUID value) {
+    private BillId(UUID value) {
         this.value = value ;
     }
-    public static ClientId of(UUID value) {
-        return new ClientId(value);
+    public static BillId of(UUID value) {
+        return new BillId(value);
     }
     public String value() {
         return value.toString();
@@ -19,8 +19,8 @@ public final class ClientId {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ClientId clientId = (ClientId) o;
-        return value.equals(clientId.value);
+        BillId billId = (BillId) o;
+        return value.equals(billId.value);
     }
 
     @Override
@@ -30,7 +30,7 @@ public final class ClientId {
 
     @Override
     public String toString() {
-        return "ClientId{" +
+        return "BillId{" +
                 "value=" + value +
                 '}';
     }
