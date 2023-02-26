@@ -7,6 +7,11 @@ import java.util.List;
 
 public class CreateConsultantCommand implements Command {
     public String name ;
+
+    public String usernameCredentials ;
+
+    public String passwordCredentials ;
+
     public String description ;
     public String modality;
     public int experienceInYears;
@@ -19,13 +24,14 @@ public class CreateConsultantCommand implements Command {
 
     public CreateConsultantCommand(String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib, List<String> skills, List<String> availibilities) {
         this.name = name;
+        this.usernameCredentials=usernameCredentials;
+        this.passwordCredentials=passwordCredentials;
         this.description = description;
         this.modality = modality;
         this.experienceInYears = experienceInYears;
         this.pricePerDay = pricePerDay;
         this.pricePerExtraDay = pricePerExtraDay;
         this.rib = rib;
-        this.credentials = new Credentials(usernameCredentials, passwordCredentials);
         this.skills = skills;
         this.availibilities = availibilities;
     }

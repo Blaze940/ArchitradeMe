@@ -1,6 +1,7 @@
 package com.esgi.architrademe.hexagonalArchi;
 
 import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantCreatedEventHandler;
+import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantUpdatedEventHandler;
 import com.esgi.architrademe.hexagonalArchi.application.services.CreateConsultantService;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.LogNotifications;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.adapter.JPAConsultants;
@@ -44,5 +45,9 @@ public class ApplicationConfiguration {
     @Bean
     public ConsultantCreatedEventHandler consultantCreatedEventHandler() {
         return new ConsultantCreatedEventHandler(notifications());
+    }
+    @Bean
+    public ConsultantUpdatedEventHandler consultantUpdatedEventHandler() {
+        return new ConsultantUpdatedEventHandler(notifications());
     }
 }

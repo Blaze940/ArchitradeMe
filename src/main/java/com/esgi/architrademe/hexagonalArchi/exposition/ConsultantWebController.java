@@ -5,8 +5,11 @@ package com.esgi.architrademe.hexagonalArchi.exposition;
 //import com.esgi.architrademe.hexagonalArchi.consultant.step19.application.SendMoneyCommand;
 
 import com.esgi.architrademe.hexagonalArchi.application.CreateConsultantCommand;
+import com.esgi.architrademe.hexagonalArchi.application.UpdateConsultantCommand;
 import com.esgi.architrademe.hexagonalArchi.exposition.requests.CreateConsultantRequest;
+import com.esgi.architrademe.hexagonalArchi.exposition.requests.UpdateConsultantRequest;
 import com.esgi.architrademe.hexagonalArchi.exposition.responses.CreateConsultantResponse;
+import com.esgi.architrademe.hexagonalArchi.exposition.responses.UpdateConsultantResponse;
 import kernel.CommandBus;
 import kernel.QueryBus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +49,23 @@ public class ConsultantWebController {
         ));
         return new CreateConsultantResponse(consultantId);
     }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public UpdateConsultantResponse update(@PathVariable("id") String id, @RequestBody @Valid UpdateConsultantRequest updateConsultantRequest) {
+        commandBus.post(new UpdateConsultantCommand(
+                updateConsultantRequest.name,
+                updateConsultantRequest.usernameCredentials,
+                updateConsultantRequest.passwordCredentials,
+                updateConsultantRequest.description,
+                updateConsultantRequest.modality,
+                updateConsultantRequest.experienceInYears,
+                updateConsultantRequest.pricePerDay,
+                updateConsultantRequest.pricePerExtraDay,
+                updateConsultantRequest.rib,
+                updateConsultantRequest.skills,
+                updateConsultantRequest.availibilities
+        ));
+        return new UpdateConsultantResponse("Consultant updated successfully");
+    }
+
 }

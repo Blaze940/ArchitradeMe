@@ -12,8 +12,8 @@ public interface ConsultantEntityMapper {
         return new ConsultantEntity(
                 UUID.fromString(consultant.id().value()),
                 consultant.getName(),
-                consultant.getCredentials().email(),
-                consultant.getCredentials().password(),
+                consultant.getUsernameCredentials(),
+                consultant.getPasswordCredentials(),
                 consultant.getDescription(),
                 consultant.getModality(),
                 consultant.getExperienceInYears(),
@@ -30,7 +30,8 @@ public interface ConsultantEntityMapper {
        return new Consultant(
                    consultantId,
                    consultantEntity.getName(),
-                    credentials,
+                    consultantEntity.getUsernameCredentials(),
+                   consultantEntity.getPasswordCredentials(),
                    consultantEntity.getDescription(),
                    consultantEntity.getExperienceInYears(),
                    consultantEntity.getPricePerDay(),

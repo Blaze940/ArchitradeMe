@@ -24,7 +24,8 @@ public final class CreateConsultantService implements CommandHandler<CreateConsu
 
         var consultant = new Consultant(consultantId,
                 command.name,
-                command.credentials,
+                command.usernameCredentials,
+                command.passwordCredentials,
                 command.description,
                 command.experienceInYears,
                 command.pricePerDay,

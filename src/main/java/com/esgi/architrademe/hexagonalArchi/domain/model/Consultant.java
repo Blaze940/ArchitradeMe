@@ -7,21 +7,24 @@ import java.util.Objects;
 
 public final class Consultant {
     private final ConsultantId id;
-    private final String name ;
-    private final Credentials credentials ;
-    private final String description ;
-    private final int experienceInYears;
-    private final int pricePerDay ;
-    private final int pricePerExtraDay ;
-    private final List<String> skills ;
-    private final List<String> availibilities ; //ArrayList less efficient than array
-    private final String modality ;
-    private final String rib ;
+    private String name ;
+    private String usernameCredentials ;
+    private String passwordCredentials ;
 
-    public Consultant(ConsultantId id, String name, Credentials credentials, String description, int experienceInYears, int pricePerDay, int pricePerExtraDay, String modality, String rib, List<String> skills, List<String> availibilities) {
+    private String description ;
+    private int experienceInYears;
+    private int pricePerDay ;
+    private int pricePerExtraDay ;
+    private List<String> skills ;
+    private List<String> availibilities ; //ArrayList less efficient than array
+    private String modality ;
+    private String rib ;
+
+    public Consultant(ConsultantId id, String name,  String usernameCredentials, String passwordCredentials, String description, int experienceInYears, int pricePerDay, int pricePerExtraDay, String modality, String rib, List<String> skills, List<String> availibilities) {
         this.id = id;
         this.name = name;
-        this.credentials = credentials;
+        this.usernameCredentials = usernameCredentials;
+        this.passwordCredentials = passwordCredentials;
         this.description = description;
         this.skills = skills;
         this.experienceInYears = experienceInYears;
@@ -36,8 +39,12 @@ public final class Consultant {
         return name;
     }
 
-    public Credentials getCredentials() {
-        return credentials;
+    public String getUsernameCredentials() {
+        return usernameCredentials;
+    }
+
+    public String getPasswordCredentials() {
+        return passwordCredentials;
     }
 
     public String getDescription() {
@@ -76,6 +83,51 @@ public final class Consultant {
     public ConsultantId id() {
         return id;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsernameCredentials(String usernameCredentials) {
+        this.usernameCredentials = usernameCredentials;
+    }
+
+    public void setPasswordCredentials(String passwordCredentials) {
+        this.passwordCredentials = passwordCredentials;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setExperienceInYears(int experienceInYears) {
+        this.experienceInYears = experienceInYears;
+    }
+
+    public void setPricePerDay(int pricePerDay) {
+        this.pricePerDay = pricePerDay;
+    }
+
+    public void setPricePerExtraDay(int pricePerExtraDay) {
+        this.pricePerExtraDay = pricePerExtraDay;
+    }
+
+    public void setModality(String modality) {
+        this.modality = modality;
+    }
+
+    public void setRib(String rib) {
+        this.rib = rib;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
+    }
+
+    public void setAvailabilities(List<String> availibilities) {
+        this.availibilities = availibilities;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

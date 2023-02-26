@@ -10,4 +10,5 @@ public interface Consultants {
     Optional<Consultant> findById(ConsultantId consultantId);
     void remove(ConsultantId consultantId);
     ConsultantId nextId();
+    void updateConsultant(Consultant consultant);
 }
