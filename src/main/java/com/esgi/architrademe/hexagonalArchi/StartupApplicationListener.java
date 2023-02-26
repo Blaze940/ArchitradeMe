@@ -8,6 +8,12 @@ import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantUpdated
 import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantUpdatedEventHandler;
 import com.esgi.architrademe.hexagonalArchi.application.services.CreateConsultantService;
 import com.esgi.architrademe.hexagonalArchi.application.services.UpdateConsultantService;
+import com.esgi.architrademe.hexagonalArchi.application.SearchConsultantQuery;
+import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantCreatedApplicationEvent;
+import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantCreatedEventHandler;
+import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantFoundEventHandler;
+import com.esgi.architrademe.hexagonalArchi.application.services.CreateConsultantService;
+import com.esgi.architrademe.hexagonalArchi.application.services.SearchConsultantService;
 import kernel.CommandBus;
 import kernel.EventDispatcher;
 import kernel.QueryBus;
@@ -29,7 +35,14 @@ public class StartupApplicationListener implements ApplicationListener<ContextRe
 
     private final ConsultantUpdatedEventHandler consultantUpdatedEventHandler;
 
-    public StartupApplicationListener(CommandBus commandBus, QueryBus queryBus, CreateConsultantService createConsultantService, EventDispatcher eventDispatcher, ConsultantCreatedEventHandler consultantCreatedEventHandler, ConsultantCreatedEventHandler consultantUpdatedEventHandler, UpdateConsultantService updateConsultantService, ConsultantUpdatedEventHandler consultantUpdatedEventHandler1) {
+    private final SearchConsultantService searchConsultantService;
+
+    private final ConsultantFoundEventHandler consultantFoundEventHandler;
+
+
+
+
+    public StartupApplicationListener(CommandBus commandBus, QueryBus queryBus, CreateConsultantService createConsultantService, EventDispatcher eventDispatcher, ConsultantCreatedEventHandler consultantCreatedEventHandler, ConsultantCreatedEventHandler consultantUpdatedEventHandler, ConsultantUpdatedEventHandler consultantUpdatedEventHandler1, SearchConsultantService searchConsultantService, ConsultantFoundEventHandler consultantFoundEventHandler) {
         this.commandBus = commandBus;
         this.queryBus = queryBus;
         this.createConsultantService = createConsultantService;
@@ -37,14 +50,19 @@ public class StartupApplicationListener implements ApplicationListener<ContextRe
         this.consultantCreatedEventHandler = consultantCreatedEventHandler;
         this.updateConsultantService = updateConsultantService;
         this.consultantUpdatedEventHandler = consultantUpdatedEventHandler1;
+
+        this.searchConsultantService = searchConsultantService;
+        this.consultantFoundEventHandler = consultantFoundEventHandler;
     }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
         eventDispatcher.register(ConsultantCreatedApplicationEvent.class, consultantCreatedEventHandler);
+        eventDispatcher.register(ConsultantFoundEventHandler.class, consultantFoundEventHandler);
 
         commandBus.register(CreateConsultantCommand.class, createConsultantService);
+        queryBus.register(SearchConsultantQuery.class, searchConsultantService);
 
         eventDispatcher.register(ConsultantUpdatedApplicationEvent.class, consultantUpdatedEventHandler);
 

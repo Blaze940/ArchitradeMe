@@ -1,15 +1,17 @@
 package com.esgi.architrademe.hexagonalArchi.exposition;
 
-//import com.esgi.architrademe.hexagonalArchi.consultant.step19.application.ConsultantBalanceQuery;
-//import com.esgi.architrademe.hexagonalArchi.consultant.step19.application.CreateConsultantCommand;
-//import com.esgi.architrademe.hexagonalArchi.consultant.step19.application.SendMoneyCommand;
-
 import com.esgi.architrademe.hexagonalArchi.application.CreateConsultantCommand;
 import com.esgi.architrademe.hexagonalArchi.application.UpdateConsultantCommand;
 import com.esgi.architrademe.hexagonalArchi.exposition.requests.CreateConsultantRequest;
 import com.esgi.architrademe.hexagonalArchi.exposition.requests.UpdateConsultantRequest;
 import com.esgi.architrademe.hexagonalArchi.exposition.responses.CreateConsultantResponse;
 import com.esgi.architrademe.hexagonalArchi.exposition.responses.UpdateConsultantResponse;
+import com.esgi.architrademe.hexagonalArchi.application.SearchConsultantQuery;
+import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
+import com.esgi.architrademe.hexagonalArchi.exposition.requests.CreateConsultantRequest;
+import com.esgi.architrademe.hexagonalArchi.exposition.requests.SearchConsultantRequest;
+import com.esgi.architrademe.hexagonalArchi.exposition.responses.CreateConsultantResponse;
+import com.esgi.architrademe.hexagonalArchi.exposition.responses.SearchConsultantResponse;
 import kernel.CommandBus;
 import kernel.QueryBus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.UUID;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/consultants")
@@ -68,6 +71,15 @@ public class ConsultantWebController {
                 updateConsultantRequest.availibilities
         ));
         return new UpdateConsultantResponse("Consultant updated successfully");
+    }
+
+    //Recherches de consultants
+    @PostMapping(value = "/search", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public SearchConsultantResponse search(@RequestBody @Valid SearchConsultantRequest searchConsultantRequest) {
+        var consultantCriteria = searchConsultantRequest.toConsultantSearchCriteria() ;
+        var consultantFound = (List<Consultant>)  queryBus.post(new SearchConsultantQuery(consultantCriteria));
+        var consultantFoundResponse = new SearchConsultantResponse(consultantFound);
+        return consultantFoundResponse;
     }
 
 }
