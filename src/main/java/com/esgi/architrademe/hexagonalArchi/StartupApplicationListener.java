@@ -46,8 +46,6 @@ public class StartupApplicationListener implements ApplicationListener<ContextRe
 
         commandBus.register(CreateConsultantCommand.class, createConsultantService);
 
-//        queryBus.register(GetConsultantQuery.class, getConsultantService);
-
         eventDispatcher.register(ConsultantUpdatedApplicationEvent.class, consultantUpdatedEventHandler);
 
         commandBus.register(UpdateConsultantCommand.class, updateConsultantService);

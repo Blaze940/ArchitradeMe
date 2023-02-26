@@ -3,6 +3,7 @@ package com.esgi.architrademe.hexagonalArchi;
 import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantCreatedEventHandler;
 import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantUpdatedEventHandler;
 import com.esgi.architrademe.hexagonalArchi.application.services.CreateConsultantService;
+import com.esgi.architrademe.hexagonalArchi.application.services.UpdateConsultantService;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.LogNotifications;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.adapter.JPAConsultants;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.repository.ConsultantEntityRepository;
@@ -41,6 +42,10 @@ public class ApplicationConfiguration {
     @Bean
     public CreateConsultantService createConsultantService() {
         return new CreateConsultantService(consultants(), eventDispatcher());
+    }
+    @Bean
+    public UpdateConsultantService updateConsultantService() {
+        return new UpdateConsultantService(consultants(), eventDispatcher());
     }
     @Bean
     public ConsultantCreatedEventHandler consultantCreatedEventHandler() {

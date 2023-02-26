@@ -23,7 +23,7 @@ public class UpdateConsultantCommand implements Command {
     public List<String> skills;
     public List<String> availabilities;
 
-    public UpdateConsultantCommand(String consultantId, String name, String usernameCredentials, String passwordCredentials, String description, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib, List<String> skills, List<String> availabilities) {
+    public UpdateConsultantCommand(String consultantId, String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib, List<String> skills, List<String> availabilities) {
         this.consultantId = UUID.fromString(consultantId);
         this.name = name;
         this.usernameCredentials = usernameCredentials;

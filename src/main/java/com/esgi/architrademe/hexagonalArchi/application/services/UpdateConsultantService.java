@@ -26,7 +26,7 @@ public final class UpdateConsultantService implements CommandHandler<UpdateConsu
         consultantOptional.ifPresent(consultant -> {
             consultant.setName(command.name);
             consultant.setUsernameCredentials(command.usernameCredentials);
-            consultant.setUsernameCredentials(command.passwordCredentials);
+            consultant.setPasswordCredentials(command.passwordCredentials);
             consultant.setDescription(command.description);
             consultant.setExperienceInYears(command.experienceInYears);
             consultant.setPricePerDay(command.pricePerDay);

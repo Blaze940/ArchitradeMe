@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/consultants")
@@ -53,6 +54,7 @@ public class ConsultantWebController {
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public UpdateConsultantResponse update(@PathVariable("id") String id, @RequestBody @Valid UpdateConsultantRequest updateConsultantRequest) {
         commandBus.post(new UpdateConsultantCommand(
+                id,
                 updateConsultantRequest.name,
                 updateConsultantRequest.usernameCredentials,
                 updateConsultantRequest.passwordCredentials,
