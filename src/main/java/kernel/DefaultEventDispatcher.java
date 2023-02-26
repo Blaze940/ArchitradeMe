@@ -15,6 +15,7 @@ public class DefaultEventDispatcher<E extends Event> implements EventDispatcher<
         return new DefaultEventDispatcher<>(new HashMap<>());
     }
 
+
     @Override
     public void dispatch(E event) {
         var eventHandler = register.get(event.getClass());

@@ -9,8 +9,6 @@ import java.util.UUID;
 public class ConsultantEntity {
     @Id
     private UUID id;
-//    @ElementCollection
-//    private List<EventEntity> recordedEvents;
 
     private String name ;
     private String usernameCredentials ;
@@ -22,12 +20,12 @@ public class ConsultantEntity {
     private int pricePerExtraDay ;
     private String rib ;
     @ElementCollection
-    @CollectionTable(name = "consultant_skills", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "skill_id", columnDefinition = "TEXT")
+    @CollectionTable(name = "consultant_skills", joinColumns = @JoinColumn(name = "fk_consultant_id"))
+    @Column(name = "skill_name", columnDefinition = "TEXT")
     private List<String> skills ;
     @ElementCollection
-    @CollectionTable(name = "consultant_availibilities", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "availibility_id", columnDefinition = "TEXT")
+    @CollectionTable(name = "consultant_availibilities", joinColumns = @JoinColumn(name = "fk_consultant_id"))
+    @Column(name = "day", columnDefinition = "TEXT")
     private List<String> availibilities ;
 
     public ConsultantEntity(UUID id, String name, String usernameCredentials, String passwordCredentials, String description, String modality, int experienceInYears, int pricePerDay, int pricePerExtraDay, String rib, List<String> skills, List<String> availibilities) {

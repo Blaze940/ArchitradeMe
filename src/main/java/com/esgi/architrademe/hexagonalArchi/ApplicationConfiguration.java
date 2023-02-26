@@ -1,7 +1,9 @@
 package com.esgi.architrademe.hexagonalArchi;
 
 import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantCreatedEventHandler;
+import com.esgi.architrademe.hexagonalArchi.application.events.ConsultantFoundEventHandler;
 import com.esgi.architrademe.hexagonalArchi.application.services.CreateConsultantService;
+import com.esgi.architrademe.hexagonalArchi.application.services.SearchConsultantService;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.LogNotifications;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.adapter.JPAConsultants;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.repository.ConsultantEntityRepository;
@@ -41,8 +43,19 @@ public class ApplicationConfiguration {
     public CreateConsultantService createConsultantService() {
         return new CreateConsultantService(consultants(), eventDispatcher());
     }
+
     @Bean
     public ConsultantCreatedEventHandler consultantCreatedEventHandler() {
         return new ConsultantCreatedEventHandler(notifications());
+    }
+
+    @Bean
+    public SearchConsultantService searchConsultantService() {
+        return new SearchConsultantService(consultants(), eventDispatcher());
+    }
+
+    @Bean
+    public ConsultantFoundEventHandler consultantFoundEventHandler() {
+        return new ConsultantFoundEventHandler(notifications());
     }
 }
