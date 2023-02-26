@@ -1,11 +1,10 @@
-package com.esgi.architrademe.hexagonalArchi.domain.ports.server;
+package com.esgi.architrademe.hexagonalArchi.domain.ports;
 
 import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
 import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
 import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantSearchCriteria;
 
 import java.util.List;
-
 import java.util.Optional;
 
 public interface Consultants {

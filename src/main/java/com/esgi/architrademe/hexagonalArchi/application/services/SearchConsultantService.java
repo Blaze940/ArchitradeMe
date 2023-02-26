@@ -3,7 +3,7 @@ package com.esgi.architrademe.hexagonalArchi.application.services;
 
 import com.esgi.architrademe.hexagonalArchi.application.SearchConsultantQuery;
 import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
-import com.esgi.architrademe.hexagonalArchi.domain.ports.server.Consultants;
+import com.esgi.architrademe.hexagonalArchi.domain.ports.Consultants;
 import kernel.Event;
 import kernel.EventDispatcher;
 import kernel.QueryHandler;

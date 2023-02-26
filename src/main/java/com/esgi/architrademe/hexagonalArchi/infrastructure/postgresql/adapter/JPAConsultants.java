@@ -1,14 +1,11 @@
 package com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.adapter;
 
-import com.esgi.architrademe.hexagonalArchi.domain.exceptions.ConsultantException;
-import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
-import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
 import com.esgi.architrademe.hexagonalArchi.application.ConsultantApplicationException;
 import com.esgi.architrademe.hexagonalArchi.domain.exceptions.ConsultantException;
 import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
 import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
 import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantSearchCriteria;
-import com.esgi.architrademe.hexagonalArchi.domain.ports.server.Consultants;
+import com.esgi.architrademe.hexagonalArchi.domain.ports.Consultants;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.entity.ConsultantEntity;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.mapper.ConsultantEntityMapper;
 import com.esgi.architrademe.hexagonalArchi.infrastructure.postgresql.repository.ConsultantEntityRepository;

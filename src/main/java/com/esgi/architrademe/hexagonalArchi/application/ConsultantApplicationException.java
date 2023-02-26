@@ -22,8 +22,4 @@ public final class ConsultantApplicationException extends ApplicationException {
     public static ConsultantApplicationException notFoundConsultantWithCriteria(ConsultantSearchCriteria criteria) {
         return new ConsultantApplicationException("Consultant with criteria -> " + criteria + " not found.");
     }
-
-
-
-
 }

@@ -1,17 +1,15 @@
 package com.esgi.architrademe.hexagonalArchi.exposition;
 
 import com.esgi.architrademe.hexagonalArchi.application.CreateConsultantCommand;
-import com.esgi.architrademe.hexagonalArchi.application.UpdateConsultantCommand;
-import com.esgi.architrademe.hexagonalArchi.exposition.requests.CreateConsultantRequest;
-import com.esgi.architrademe.hexagonalArchi.exposition.requests.UpdateConsultantRequest;
-import com.esgi.architrademe.hexagonalArchi.exposition.responses.CreateConsultantResponse;
-import com.esgi.architrademe.hexagonalArchi.exposition.responses.UpdateConsultantResponse;
 import com.esgi.architrademe.hexagonalArchi.application.SearchConsultantQuery;
+import com.esgi.architrademe.hexagonalArchi.application.UpdateConsultantCommand;
 import com.esgi.architrademe.hexagonalArchi.domain.model.Consultant;
 import com.esgi.architrademe.hexagonalArchi.exposition.requests.CreateConsultantRequest;
 import com.esgi.architrademe.hexagonalArchi.exposition.requests.SearchConsultantRequest;
+import com.esgi.architrademe.hexagonalArchi.exposition.requests.UpdateConsultantRequest;
 import com.esgi.architrademe.hexagonalArchi.exposition.responses.CreateConsultantResponse;
 import com.esgi.architrademe.hexagonalArchi.exposition.responses.SearchConsultantResponse;
+import com.esgi.architrademe.hexagonalArchi.exposition.responses.UpdateConsultantResponse;
 import kernel.CommandBus;
 import kernel.QueryBus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.UUID;
 import java.util.List;
 
 @RestController
@@ -36,6 +33,7 @@ public class ConsultantWebController {
         this.queryBus = queryBus;
     }
 
+    // Create consultant
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public CreateConsultantResponse create(@RequestBody @Valid CreateConsultantRequest createConsultantRequest) {
         var consultantId = (String) commandBus.post(new CreateConsultantCommand(
@@ -54,6 +52,7 @@ public class ConsultantWebController {
         return new CreateConsultantResponse(consultantId);
     }
 
+    // Modify constants
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public UpdateConsultantResponse update(@PathVariable("id") String id, @RequestBody @Valid UpdateConsultantRequest updateConsultantRequest) {
         commandBus.post(new UpdateConsultantCommand(
@@ -73,8 +72,8 @@ public class ConsultantWebController {
         return new UpdateConsultantResponse("Consultant updated successfully");
     }
 
-    //Recherches de consultants
-    @PostMapping(value = "/search", consumes = MediaType.APPLICATION_JSON_VALUE)
+    // Search consultants
+    @GetMapping(value = "/search", consumes = MediaType.APPLICATION_JSON_VALUE)
     public SearchConsultantResponse search(@RequestBody @Valid SearchConsultantRequest searchConsultantRequest) {
         var consultantCriteria = searchConsultantRequest.toConsultantSearchCriteria() ;
         var consultantFound = (List<Consultant>)  queryBus.post(new SearchConsultantQuery(consultantCriteria));

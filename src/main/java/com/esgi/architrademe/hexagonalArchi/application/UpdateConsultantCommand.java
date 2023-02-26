@@ -7,13 +7,9 @@ import java.util.UUID;
 
 public class UpdateConsultantCommand implements Command {
     public UUID consultantId;
-
     public String name;
-
     public String usernameCredentials;
-
     public String passwordCredentials;
-
     public String description;
     public String modality;
     public int experienceInYears;

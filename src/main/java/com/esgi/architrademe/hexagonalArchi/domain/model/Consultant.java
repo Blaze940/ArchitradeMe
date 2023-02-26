@@ -1,7 +1,5 @@
 package com.esgi.architrademe.hexagonalArchi.domain.model;
 
-import com.esgi.architrademe.hexagonalArchi.domain.Credentials;
-
 import java.util.List;
 import java.util.Objects;
 

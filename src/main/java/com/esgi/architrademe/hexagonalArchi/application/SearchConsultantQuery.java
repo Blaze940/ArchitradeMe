@@ -9,7 +9,4 @@ public class SearchConsultantQuery implements Query {
     public SearchConsultantQuery(ConsultantSearchCriteria consultantSearchCriteria) {
         this.consultantSearchCriteria = consultantSearchCriteria;
     }
-
-
-
 }

@@ -5,7 +5,6 @@ import com.esgi.architrademe.hexagonalArchi.domain.model.ConsultantId;
 public class ConsultantException extends RuntimeException {
     private ConsultantException() {
     }
-
     private ConsultantException(String message) {
         super(message);
     }
